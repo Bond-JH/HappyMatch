@@ -18,9 +18,9 @@ struct CardView:View {
             RoundedRectangle(cornerRadius: 20)
                 .strokeBorder(lineWidth: 6)
             Image(systemName: gameRule.choosePattern(id: gameRule.getPattern(n: cardModel.number)))
-                .scaleEffect(6)
+                .scaleEffect(3)
         }
-        .scaleEffect(0.3)
+        .frame(width: 120, height: 180)
     }
 }
 
