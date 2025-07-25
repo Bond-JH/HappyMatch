@@ -28,6 +28,7 @@ struct DeskView:View {
                             }
                             .padding(16)
                         }
+            Text("\(gameRule.scores)")
             Button(action: {
                 cards+=1
                 let newNumber=gameRule.generateRandomNumber()
@@ -38,6 +39,8 @@ struct DeskView:View {
             }
         }
     }
+    
+    
 }
 
 
