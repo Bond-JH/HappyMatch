@@ -10,7 +10,7 @@ import SwiftUI
 struct DeskView:View {
     let gameRule = GameRule.shared
     @State var cards:Int = 0
-    @State var Cards:[CardModel] = []
+    @State var Cards:[CardModel]=[]
     let columns = [
             GridItem(.flexible(), spacing: 16),
             GridItem(.flexible(), spacing: 16),

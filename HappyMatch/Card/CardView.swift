@@ -10,8 +10,10 @@ struct CardView:View {
     let gameRule = GameRule.shared
     let cardModel:CardModel
     @State var clicked=false
+    
+    
     var  card:Card{
-        Card(identity: gameRule.getPattern(n: cardModel.number))
+        Card(identity: gameRule.getPattern(n: cardModel.number), id: cardModel.id)
     }
     
     var body: some View {
@@ -32,35 +34,23 @@ struct CardView:View {
     var option:some Gesture{
         TapGesture()
             .onEnded{
-                
-                if(!clicked){
-                    if(gameRule.choosenCards.count<2){
+                if !clicked{
+                    if gameRule.choosenCards.count<2{
+                        clicked=true
                         gameRule.choose(c: card)
                     }
-                    
                 }else{
-                    gameRule.cancel(c: card, status: clicked)
+                    clicked = false
+                    gameRule.cancel(c: card)
                 }
-                
-                
                
-                gameRule.succeed()
-                self.clicked.toggle()
-                
+                gameRule.checkMatch()
                
             }
         
         
     }
     
-//    var match : some Gesture{
-//        TapGesture()
-//            .onEnded{
-//                if(self.clicked){
-//                    gameRule.choose(c: card)
-//                }
-//            }
-//    }
     
 
 }
